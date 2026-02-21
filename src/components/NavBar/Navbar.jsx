@@ -9,14 +9,14 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const links = [
+  /* const links = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
     { name: 'Skills', href: '/skills' },
     { name: 'Experience', href: '/experience' },
-    { name: 'Contact', href: '/contact' }
-  ];
+    { name: 'Contact', href: '#' }
+  ]; */
 
   // Scroll effect for navbar
   useEffect(() => {
