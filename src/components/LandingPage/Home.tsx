@@ -1526,7 +1526,7 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
 </section>
 
         {/* FOOTER */}
-        <footer className="footer">
+       <footer className="footer">
   <div className="footer-inner" style={{ flexDirection: 'column', gap: '32px' }}>
     {/* Top - Brand & CTA */}
     <div style={{ 
@@ -1535,7 +1535,7 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
       alignItems: 'center',
       gap: '40px',
       width: '100%'
-    }}>
+    }} className="footer-top">
       <div>
         <div className="footer-name" style={{ fontSize: '22px', marginBottom: '4px' }}>Boniface Mutuku</div>
         <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)' }}>
@@ -1543,7 +1543,7 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
         </div>
       </div>
       
-      <div style={{ display: 'flex', gap: '12px' }}>
+      <div style={{ display: 'flex', gap: '12px' }} className="footer-cta">
         <input 
           type="email" 
           placeholder="Your email" 
@@ -1555,6 +1555,7 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
             fontSize: '13px',
             width: '220px'
           }}
+          className="footer-input"
         />
         <button style={{ 
           padding: '10px 20px', 
@@ -1563,7 +1564,8 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
           border: 'none',
           fontSize: '13px',
           fontWeight: '500',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          whiteSpace: 'nowrap'
         }}>
           Connect
         </button>
@@ -1578,12 +1580,28 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
       width: '100%',
       paddingTop: '24px',
       borderTop: '1px solid rgba(255,255,255,0.1)'
-    }}>
-      <div style={{ display: 'flex', gap: '24px' }}>
-        <a href="#about" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none' }}>About</a>
-        <a href="#experience" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none' }}>Work</a>
-        <a href="#skills" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none' }}>Skills</a>
-        <a href="#contact" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none' }}>Contact</a>
+    }} className="footer-bottom">
+      <div style={{ display: 'flex', gap: '24px' }} className="footer-nav">
+        <a href="#about" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }} 
+           onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+           onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>
+          About
+        </a>
+        <a href="#experience" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }}
+           onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+           onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>
+          Work
+        </a>
+        <a href="#skills" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }}
+           onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+           onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>
+          Skills
+        </a>
+        <a href="#contact" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }}
+           onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+           onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>
+          Contact
+        </a>
       </div>
       
       <div className="footer-right" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '12px' }}>
@@ -1592,6 +1610,56 @@ const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLTextArea
     </div>
   </div>
 </footer>
+
+<style>{`
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+      text-align: center;
+    }
+    
+    .footer-cta {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .footer-input {
+      width: 100% !important;
+      max-width: 100%;
+    }
+    
+    .footer-cta button {
+      width: 100%;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-nav {
+      gap: 12px !important;
+    }
+    
+    .footer-nav a {
+      font-size: 12px !important;
+    }
+    
+    .footer-name {
+      font-size: 20px !important;
+    }
+  }
+`}</style>
 
       </div>
     </>
